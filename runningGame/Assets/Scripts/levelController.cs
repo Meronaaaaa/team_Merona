@@ -8,11 +8,30 @@ public class levelController : MonoBehaviour
     // 왼쪽라인, 중간라인, 오른쪽라인 중 어디에 나올지 고른다
     // 몇개가 나오는건지 고른다
 
-    public GameObject[] obstacles;
-    int numberOfObstacles;  // 팝업 개수        => 
-    int indexOfObstacles;   // 장애물의 종류
+    //public GameObject[] obstacles;
+    //int numberOfObstacles;  // 팝업 개수        
+    //int indexOfObstacles;   // 장애물의 종류
 
-    
+    public LevelPiece[] levelPieces;
+    public Transform _camera;
+    public int drawDistance;
+
+    public float pieceLength;
+    public float speed;
+
+    private void Start()
+    {
+        for(int i=0; i<drawDistance; i++)
+        {
+            GameObject newLevelPiece = Instantiate(levelPieces[0].prefab, new Vector3(0f,0f,pieceLength *i),Quaternion.identity);
+        }
+    }
+
+    private void Update()
+    {
+        _camera.transform.position = Vector3.MoveTowards(_camera.transform.position,_camera.transform.position+Vector3.forward,Time.deltaTime *speed);
+    }
+
 }
 
 
