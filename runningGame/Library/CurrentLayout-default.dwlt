@@ -21,7 +21,7 @@ MonoBehaviour:
   m_ShowMode: 4
   m_Title: 
   m_RootView: {fileID: 6}
-  m_MinSize: {x: 875, y: 300}
+  m_MinSize: {x: 875, y: 542}
   m_MaxSize: {x: 10000, y: 10000}
   m_Maximized: 1
 --- !u!114 &2
@@ -48,7 +48,7 @@ MonoBehaviour:
   m_MinSize: {x: 679, y: 492}
   m_MaxSize: {x: 14002, y: 14042}
   vertical: 0
-  controlID: 104
+  controlID: 58
 --- !u!114 &3
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -221,7 +221,7 @@ MonoBehaviour:
   m_MinSize: {x: 403, y: 492}
   m_MaxSize: {x: 10001, y: 14042}
   vertical: 1
-  controlID: 77
+  controlID: 114
 --- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -246,7 +246,7 @@ MonoBehaviour:
   m_MinSize: {x: 403, y: 221}
   m_MaxSize: {x: 8003, y: 4021}
   vertical: 0
-  controlID: 78
+  controlID: 115
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -416,7 +416,7 @@ MonoBehaviour:
     x: 402
     y: 73
     width: 962
-    height: 629
+    height: 650
   m_ViewDataDictionary: {fileID: 0}
 --- !u!114 &16
 MonoBehaviour:
@@ -457,20 +457,20 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/assets/background/GrassRoadRace
+    - Assets/wire_fence
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/assets/background/GrassRoadRace
+  - Assets/wire_fence
   m_LastFoldersGridSize: -1
   m_LastProjectPath: D:\3D_scriptClass\team_Merona\runningGame
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 00370000
-    m_LastClickedID: 14080
-    m_ExpandedIDs: 00000000fe360000023700000437000006370000083700000a3700000c3700001637000000ca9a3b
+    scrollPos: {x: 0, y: 281}
+    m_SelectedIDs: 0e890000
+    m_LastClickedID: 35086
+    m_ExpandedIDs: 000000000e37000010370000123700001437000016370000183700001a3700001c370000423700004437000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -498,7 +498,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000fe36000000370000023700000437000006370000083700000a3700000c370000
+    m_ExpandedIDs: 000000000e37000010370000123700001437000016370000183700001a3700001c370000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -623,21 +623,21 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: c8e5fffff0e5fffff6eeffff1cefffff10f0ffff32f0ffff68f0ffff70fbffff9c330000
+      m_ExpandedIDs: a60bffff1216fffff644ffff3645ffff7e4cffff6c56ffff8456ffff9656ffffbc56ffff6a5bffff7e5bffffd662ffffea62fffffe62ffffd474ffffe874ffff6479ffff7879ffff807effff947effffa87effff4a86ffff5e86ffffcc94ffffe094ffff0895ffff1c95ffff4495ffff74adffffb8afffff5ac6ffff24c8ffffe2cbffffa4d5ffff96dcffff70fbffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
-        m_Name: 
-        m_OriginalName: 
+        m_Name: RoadBlocker2
+        m_OriginalName: RoadBlocker2
         m_EditFieldRect:
           serializedVersion: 2
           x: 0
           y: 0
           width: 0
           height: 0
-        m_UserData: 0
+        m_UserData: -54146
         m_IsWaitingForDelay: 0
         m_IsRenaming: 0
-        m_OriginalEventType: 11
+        m_OriginalEventType: 0
         m_IsRenamingFilename: 0
         m_ClientGUIView: {fileID: 4}
       m_SearchString: 
@@ -683,9 +683,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -7.5357842, y: 36.201668, z: -12.668926}
+    m_Target: {x: 0.00019308925, y: 0.33060858, z: 13.245508}
     speed: 2
-    m_Value: {x: -7.5357842, y: 36.201668, z: -12.668926}
+    m_Value: {x: 0.00019308925, y: 0.33060858, z: 13.245508}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -731,13 +731,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: 0.018285505, y: -0.8352401, z: 0.54889363, w: 0.027818004}
+    m_Target: {x: 0.27971175, y: -0.6521236, z: 0.28257772, w: 0.64550066}
     speed: 2
-    m_Value: {x: -0.018285505, y: 0.8352401, z: -0.54889363, w: -0.027818006}
+    m_Value: {x: 0.27970827, y: -0.6521154, z: 0.28257418, w: 0.64549255}
   m_Size:
-    m_Target: 64.40531
+    m_Target: 6.895493
     speed: 2
-    m_Value: 61.631878
+    m_Value: 6.895493
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -786,7 +786,7 @@ MonoBehaviour:
     x: 402
     y: 73
     width: 962
-    height: 629
+    height: 650
   m_ViewDataDictionary: {fileID: 0}
   m_SerializedViewsNames: []
   m_SerializedViewsValues: []
@@ -794,7 +794,7 @@ MonoBehaviour:
   m_ShowGizmos: 0
   m_TargetDisplay: 0
   m_ClearColor: {r: 0, g: 0, b: 0, a: 0}
-  m_TargetSize: {x: 962, y: 608}
+  m_TargetSize: {x: 962, y: 629}
   m_TextureFilterMode: 0
   m_TextureHideFlags: 61
   m_RenderIMGUI: 1
@@ -828,7 +828,7 @@ MonoBehaviour:
     m_DrawArea:
       serializedVersion: 2
       x: 0
-      y: 0
+      y: 21
       width: 962
       height: 629
     m_Scale: {x: 1, y: 1}
@@ -845,7 +845,7 @@ MonoBehaviour:
       height: 629
     m_MinimalGUI: 1
   m_defaultScale: 1
-  m_LastWindowPixelSize: {x: 962, y: 629}
+  m_LastWindowPixelSize: {x: 962, y: 650}
   m_ClearInEditMode: 1
   m_NoCameraWarning: 1
   m_LowResolutionForAspectRatios: 01000000000000000000
@@ -873,7 +873,7 @@ MonoBehaviour:
   m_Pos:
     serializedVersion: 2
     x: 0
-    y: 724
-    width: 1366
-    height: 275
+    y: 744
+    width: 1365
+    height: 255
   m_ViewDataDictionary: {fileID: 0}

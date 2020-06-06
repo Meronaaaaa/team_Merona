@@ -10,12 +10,16 @@ public class levelController : MonoBehaviour
 
     public LevelPiece[] obstacles;  //장애물 
     List<int> probabilityList= new List<int>();
-    //int numberOfObstacles;  // 팝업 개수        
-    //int indexOfObstacles;   // 장애물의 종류
+    List<int> probabilityList_land = new List<int>();
+    int numberOfObstacles;  // 팝업 개수        
+    int locationOfObstacles;   // 장애물의 종류
 
     public LevelPiece[] levelPieces;
     public Transform _camera;
     public int drawDistance;
+    public int drawObstacles;
+
+    bool bridgeOnStage = false;   //다리가 있으면 블록이랑 철망 위치 조정해야함...
 
     public float pieceLength;
     public float speed;
@@ -33,7 +37,9 @@ public class levelController : MonoBehaviour
         {
             SpawnNewLevelPiece();
             SpawnObstacles();
+            bridgeOnStage = false;
         }
+
 
         currentCamStep = (int)(_camera.transform.position.z /pieceLength);
         lastCamStep = currentCamStep;
@@ -57,13 +63,34 @@ public class levelController : MonoBehaviour
     void SpawnObstacles()   //장애물 배치
     {
         int pieceIndex = probabilityList[Random.Range(0, probabilityList.Count)];
-        GameObject hurdle = Instantiate(obstacles[pieceIndex].prefab, new Vector3(0f, 0f, pieceLength * (currentCamStep + activePieces.Count)), Quaternion.identity);
-        activeObstacles.Enqueue(hurdle);
+        if (pieceIndex != 0)   //철조망 빼고 나머지 장애물의 경우      -1.37 ~1.37
+        {
+            int locationOfObstacles = Random.Range(-1,1);
+            float loc = 1.37f * locationOfObstacles;
+            if (bridgeOnStage==true)
+            {
+                loc = 0f;
+            }
+            GameObject hurdle = Instantiate(obstacles[pieceIndex].prefab, new Vector3(loc, 0f, pieceLength * (currentCamStep + activePieces.Count)), Quaternion.identity);
+            activeObstacles.Enqueue(hurdle);
+        }
+        else       //철조망
+        {
+            GameObject hurdle = Instantiate(obstacles[pieceIndex].prefab, new Vector3(0f, 0f, pieceLength * (currentCamStep + activePieces.Count)), Quaternion.identity);
+            activeObstacles.Enqueue(hurdle);
+        }
+        //activeObstacles.Enqueue(hurdle);
     }
 
     void SpawnNewLevelPiece()     // 지면 배치 -> 현재 끝없이 나오는버전
     {
-        GameObject newLevelPiece = Instantiate(levelPieces[0].prefab, new Vector3(0f, 0f, pieceLength * (currentCamStep +activePieces.Count)), Quaternion.identity);
+        
+        int pieceIndex = probabilityList_land[Random.Range(0, probabilityList_land.Count)];
+        if (pieceIndex == 1) //Bridge 의 경우
+        {
+            bridgeOnStage = true;
+        }
+        GameObject newLevelPiece = Instantiate(levelPieces[pieceIndex].prefab, new Vector3(0f, 0f, pieceLength * (currentCamStep +activePieces.Count)), Quaternion.identity);
         activePieces.Enqueue(newLevelPiece);
     }
 
@@ -78,6 +105,7 @@ public class levelController : MonoBehaviour
     void BuidProbabilityList()      //장애물 확률 조정 함수
     {
         int index = 0;
+        int index_ground = 0;
         foreach(LevelPiece piece in obstacles)
         {
             for(int i=0; i<piece.probability; i++)
@@ -85,6 +113,15 @@ public class levelController : MonoBehaviour
                 probabilityList.Add(index);
             }
             index++;
+        }
+
+        foreach (LevelPiece piece in levelPieces)
+        {
+            for (int i = 0; i < piece.probability; i++)
+            {
+                probabilityList_land.Add(index_ground);
+            }
+            index_ground++;
         }
     }
 
