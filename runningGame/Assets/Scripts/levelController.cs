@@ -29,6 +29,7 @@ public class levelController : MonoBehaviour
     int currentCamStep = 0;
     int lastCamStep = 0;
 
+    float brigdgeLoc = 0;
 
     private void Start()
     {
@@ -47,7 +48,12 @@ public class levelController : MonoBehaviour
 
     private void Update()
     {
-        _camera.transform.position = Vector3.MoveTowards(_camera.transform.position,_camera.transform.position+Vector3.forward,Time.deltaTime *speed);
+        if(Input.GetKey("a"))
+        {
+            _camera.transform.position = Vector3.MoveTowards(_camera.transform.position, _camera.transform.position + Vector3.forward+ Vector3.left*100, Time.deltaTime * speed);
+        }
+        else
+            _camera.transform.position = Vector3.MoveTowards(_camera.transform.position,_camera.transform.position+Vector3.forward,Time.deltaTime *speed);
 
         currentCamStep = (int)(_camera.transform.position.z / pieceLength);
         if(currentCamStep != lastCamStep)
@@ -56,6 +62,7 @@ public class levelController : MonoBehaviour
             DespawnLevelPiece();
             SpawnNewLevelPiece();
             SpawnObstacles();
+            bridgeOnStage = false;
         }
     
     }
@@ -69,7 +76,7 @@ public class levelController : MonoBehaviour
             float loc = 1.37f * locationOfObstacles;
             if (bridgeOnStage==true)
             {
-                loc = 0f;
+                loc = brigdgeLoc;
             }
             GameObject hurdle = Instantiate(obstacles[pieceIndex].prefab, new Vector3(loc, 0f, pieceLength * (currentCamStep + activePieces.Count)), Quaternion.identity);
             activeObstacles.Enqueue(hurdle);
@@ -89,8 +96,11 @@ public class levelController : MonoBehaviour
         if (pieceIndex == 1) //Bridge 의 경우
         {
             bridgeOnStage = true;
+            brigdgeLoc = Random.Range(-1, 1) * 1.37f;
         }
-        GameObject newLevelPiece = Instantiate(levelPieces[pieceIndex].prefab, new Vector3(0f, 0f, pieceLength * (currentCamStep +activePieces.Count)), Quaternion.identity);
+        else
+            brigdgeLoc = 0f;
+        GameObject newLevelPiece = Instantiate(levelPieces[pieceIndex].prefab, new Vector3(brigdgeLoc, 0f, pieceLength * (currentCamStep +activePieces.Count)), Quaternion.identity);
         activePieces.Enqueue(newLevelPiece);
     }
 
